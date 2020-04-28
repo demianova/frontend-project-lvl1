@@ -16,16 +16,24 @@ const calc = (firstNumber, operator, secondNumber) => {
   return firstNumber * secondNumber;
 };
 
-for (let turn = 1; turn <= 3; turn += 1) {
+const generateQuestionAndAnswer = () => {
   const firstNumber = generateRandomNumber(1, 100);
   const secondNumber = generateRandomNumber(1, 100);
   const randomIndex = generateRandomNumber(0, 2);
   const operator = operators[randomIndex];
 
-  console.log(`Question: ${firstNumber} ${operator} ${secondNumber}`);
+  const question = `${firstNumber} ${operator} ${secondNumber}`;
+  const answer = calc(firstNumber, operator, secondNumber);
+
+  return [question, answer];
+};
+
+for (let turn = 1; turn <= 3; turn += 1) {
+  const [question, expectedAnswer] = generateQuestionAndAnswer();
+
+  console.log(`Question: ${question}`);
   const answer = Number(readlineSync.question('Your answer: '));
 
-  const expectedAnswer = calc(firstNumber, operator, secondNumber);
   if (answer !== expectedAnswer) {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "${expectedAnswer}".`);
     console.log(`Let's try again, ${name}!`);

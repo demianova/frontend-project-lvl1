@@ -8,14 +8,19 @@ const name = greetingAndAskName();
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
-for (let turn = 1; turn <= 3; turn += 1) {
+const generateQuestionAndAnswer = () => {
   const randomNumber = generateRandomNumber(1, 100);
+  const isEven = randomNumber % 2 === 0;
+  const answer = isEven ? 'yes' : 'no';
+  return [randomNumber, answer];
+};
 
-  console.log(`Question: ${randomNumber}`);
+for (let turn = 1; turn <= 3; turn += 1) {
+  const [question, expectedAnswer] = generateQuestionAndAnswer();
+
+  console.log(`Question: ${question}`);
   const answer = readlineSync.question('Your answer: ');
 
-  const isEven = randomNumber % 2 === 0;
-  const expectedAnswer = isEven ? 'yes' : 'no';
   if (answer !== expectedAnswer) {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "${expectedAnswer}".`);
     console.log(`Let's try again, ${name}!`);
