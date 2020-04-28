@@ -2,11 +2,10 @@
 
 import readlineSync from 'readline-sync';
 
-console.log('Welcome to the Brain Games!');
+import greetingAndAskName from '../src/cli.js';
 
-const name = readlineSync.question('May I have your name? ');
+const name = greetingAndAskName();
 
-console.log(`Hello, ${name}!`);
 console.log('What is the result of the expression?');
 
 const generateRandomNumber = (min, max) => {

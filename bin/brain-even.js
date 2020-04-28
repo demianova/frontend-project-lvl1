@@ -2,11 +2,10 @@
 
 import readlineSync from 'readline-sync';
 
-console.log('Welcome to the Brain Games!');
+import greetingAndAskName from '../src/cli.js';
 
-const name = readlineSync.question('May I have your name? ');
+const name = greetingAndAskName();
 
-console.log(`Hello, ${name}!`);
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 for (let turn = 1; turn <= 3; turn += 1) {
