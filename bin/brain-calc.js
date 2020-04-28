@@ -2,16 +2,11 @@
 
 import readlineSync from 'readline-sync';
 
-import greetingAndAskName from '../src/cli.js';
+import { greetingAndAskName, generateRandomNumber } from '../src/cli.js';
 
 const name = greetingAndAskName();
 
 console.log('What is the result of the expression?');
-
-const generateRandomNumber = (min, max) => {
-  const rand = min + Math.random() * (max + 1 - min);
-  return Math.floor(rand);
-};
 
 const operators = ['+', '-', '*'];
 

@@ -2,15 +2,14 @@
 
 import readlineSync from 'readline-sync';
 
-import greetingAndAskName from '../src/cli.js';
+import { greetingAndAskName, generateRandomNumber } from '../src/cli.js';
 
 const name = greetingAndAskName();
 
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 for (let turn = 1; turn <= 3; turn += 1) {
-  const rand = 1 + Math.random() * (100 - 0);
-  const randomNumber = Math.floor(rand);
+  const randomNumber = generateRandomNumber(1, 100);
 
   console.log(`Question: ${randomNumber}`);
   const answer = readlineSync.question('Your answer: ');
