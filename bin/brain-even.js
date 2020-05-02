@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-import { greetingAndAskName, generateRandomNumber } from '../src/cli.js';
+import { generateRandomNumber } from '../src/cli.js';
 import gameEngine from '../src/index.js';
 
-const name = greetingAndAskName();
-
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
+const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const generateQuestionAndAnswer = () => {
   const randomNumber = generateRandomNumber(1, 100);
@@ -14,4 +12,4 @@ const generateQuestionAndAnswer = () => {
   return [randomNumber, answer];
 };
 
-gameEngine(name, generateQuestionAndAnswer);
+gameEngine(generateQuestionAndAnswer, gameRules);

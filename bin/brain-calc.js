@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
-import { greetingAndAskName, generateRandomNumber } from '../src/cli.js';
+import { generateRandomNumber } from '../src/cli.js';
 import gameEngine from '../src/index.js';
 
-const name = greetingAndAskName();
-
-console.log('What is the result of the expression?');
+const gameRules = 'What is the result of the expression?';
 
 const operators = ['+', '-', '*'];
 
@@ -27,4 +25,4 @@ const generateQuestionAndAnswer = () => {
   return [question, answer];
 };
 
-gameEngine(name, generateQuestionAndAnswer);
+gameEngine(generateQuestionAndAnswer, gameRules);

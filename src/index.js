@@ -1,6 +1,12 @@
 import readlineSync from 'readline-sync';
 
-const gameEngine = (name, generateQuestionAndAnswer) => {
+import { greetingAndAskName } from './cli.js';
+
+const gameEngine = (generateQuestionAndAnswer, gameRules) => {
+  const name = greetingAndAskName();
+
+  console.log(gameRules);
+
   for (let turn = 1; turn <= 3; turn += 1) {
     const [question, expectedAnswer] = generateQuestionAndAnswer();
 
