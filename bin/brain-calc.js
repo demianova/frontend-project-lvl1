@@ -23,7 +23,7 @@ const generateQuestionAndAnswer = () => {
   const operator = operators[randomIndex];
 
   const question = `${firstNumber} ${operator} ${secondNumber}`;
-  const answer = calc(firstNumber, operator, secondNumber);
+  const answer = calc(firstNumber, operator, secondNumber).toString(10);
 
   return [question, answer];
 };
@@ -32,7 +32,7 @@ for (let turn = 1; turn <= 3; turn += 1) {
   const [question, expectedAnswer] = generateQuestionAndAnswer();
 
   console.log(`Question: ${question}`);
-  const answer = Number(readlineSync.question('Your answer: '));
+  const answer = readlineSync.question('Your answer: ');
 
   if (answer !== expectedAnswer) {
     console.log(`"${answer}" is wrong answer ;(. Correct answer was "${expectedAnswer}".`);
